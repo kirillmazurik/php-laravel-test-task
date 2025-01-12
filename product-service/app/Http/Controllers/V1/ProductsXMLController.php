@@ -10,7 +10,6 @@ use App\Http\Requests\CreateRequest;
 use App\Http\Requests\SearchRequest;
 use App\Http\Requests\UpdateRequest;
 use Decimal\Decimal;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Routing\Controller as BaseController;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -289,8 +288,8 @@ final class ProductsXMLController extends BaseController
 
         if (!empty($request->get('price'))) {
             $price =  $request->get('price');
-            Assert::string($price);
-            $price = new Decimal($price);
+            Assert::numeric($price);
+            $price = new Decimal((string) $price);
         } else {
             $price = null;
         }

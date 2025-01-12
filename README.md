@@ -14,7 +14,7 @@ git clone git@github.com:kirillmazurik/php-laravel-test-task.git
 cd php-laravel-test-task
 ```
 
-5. Поднять контейнер
+5. Поднять контейнеры
 ```
 docker compose up --build -d
 ```

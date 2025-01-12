@@ -12,7 +12,7 @@ return new class extends Migration {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('address_id');
-            $table->decimal('total');
+            $table->decimal('total', 32, 18);
             $table->timestamps();
 
             $table

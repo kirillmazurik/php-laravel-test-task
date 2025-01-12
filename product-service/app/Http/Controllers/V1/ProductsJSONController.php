@@ -280,8 +280,8 @@ final class ProductsJSONController extends BaseController
 
         if (!empty($request->get('price'))) {
             $price =  $request->get('price');
-            Assert::string($price);
-            $price = new Decimal($price);
+            Assert::numeric($price);
+            $price = new Decimal((string) $price);
         } else {
             $price = null;
         }

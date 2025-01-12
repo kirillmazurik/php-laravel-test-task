@@ -27,7 +27,6 @@ services:
     volumes:
       - ./product-service:/var/www/api/product-service
       - ./product-service/storage/api-docs:/var/www/api/product-service/storage/api-docs
-#      - ./product-service/vendor:/var/www/api/product-service/vendor
       - ./product-service/bootstrap/cache:/var/www/api/product-service/bootstrap/cache
     networks:
       - app-network
@@ -48,7 +47,6 @@ services:
     volumes:
       - ./order-service:/var/www/api/order-service
       - ./order-service/storage/api-docs:/var/www/api/order-service/storage/api-docs
-#      - ./order-service/vendor:/var/www/api/order-service/vendor
       - ./order-service/bootstrap/cache:/var/www/api/order-service/bootstrap/cache
     networks:
       - app-network
