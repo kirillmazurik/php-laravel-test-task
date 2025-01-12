@@ -2,59 +2,73 @@
 
 1. Установить docker и docker-compose
 
-2. Не обязательно!: Создать .env и заполнить своими данными. .env в репе хранится не должен. Тут он для упрощения установки (cp .env.example .env)
+2. Не обязательно!: Создать .env и заполнить своими данными. .env в репе хранится не должен. Тут он для упрощения установки
 
-Клонируем репозиторий
-git clone  git@github.com:kirillmazurik/php-task-gateway.git .
+3. Клонируем репозиторий
+```
+git clone git@github.com:kirillmazurik/php-laravel-test-task.git .
+```
 
+4. Заходим в папку с проектом
+```
 cd php-task-gateway
+```
 
-3. Поднять контейнер
+5. Поднять контейнер
 ```
 docker compose up --build -d
 ```
 
-4. Выполнить вход в контейнер
+6. Выполнить вход в контейнер
 ```
 docker compose exec product-service bash
 ```
 
-5. Установить зависимости
+7. Установить зависимости
 ```
 composer install
 ```
 
-6. Накатить миграции
+8. Накатить миграции
 ```
 ./artisan migrate --force
 ```
-exit 
 
+9. Выход
+```
+exit 
+```
+
+10. Выполнить вход в контейнер
+```
 docker compose exec order-service bash
 ```
 
-5. Установить зависимости
+11. Установить зависимости
 ```
 composer install
 ```
 
-6. Накатить миграции
+12. Накатить миграции
 ```
 ./artisan migrate --force
 ```
+
+13. Выход
+```
 exit 
-
-7. Обновление routes и конфига
-```
-./artisan optimize
 ```
 
-8. Swagger доступен по адресу
+# Swagger
+Swagger доступен по адресам
 ```
-http://localhost:8000/api/documentation
+http://localhost:8020/products/api/documentation
+```
+```
+http://localhost:8020/orders/api/documentation
 ```
 
-## По желанию выполнить в контейнере app:
+## По желанию выполнить в контейнерах:
 ### Форматирование кода:
 ```
 vendor/bin/php-cs-fixer fix app
@@ -76,6 +90,7 @@ vendor/bin/phpstan analyse tests --level=9
 vendor/bin/phpunit tests/
 ```
 
+### Перегенерировать swagger
 ```
 php artisan l5-swagger:generate
 ```
