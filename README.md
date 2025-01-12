@@ -31,7 +31,7 @@ composer install
 
 8. Накатить миграции
 ```
-./artisan migrate --force
+php artisan migrate --force
 ```
 
 9. Выход
@@ -51,7 +51,7 @@ composer install
 
 12. Накатить миграции
 ```
-./artisan migrate --force
+php artisan migrate --force
 ```
 
 13. Выход

@@ -1,8 +1,5 @@
 .idea
 nbproject
 vendor
-storage/app
-storage/framework
-storage/logs
 .php-cs-fixer.cache
 .phpunit.result.cache
