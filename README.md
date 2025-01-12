@@ -6,12 +6,12 @@
 
 3. Клонируем репозиторий
 ```
-git clone git@github.com:kirillmazurik/php-laravel-test-task.git .
+git clone git@github.com:kirillmazurik/php-laravel-test-task.git
 ```
 
 4. Заходим в папку с проектом
 ```
-cd php-task-gateway
+cd php-laravel-test-task
 ```
 
 5. Поднять контейнер
