@@ -1,0 +1,417 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Test task",
+        "version": "1"
+    },
+    "paths": {
+        "/products/api/v1/products": {
+            "get": {
+                "tags": [
+                    "api-products"
+                ],
+                "operationId": "9cf58aab3a06d38a4281befb27cea82b",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "api-products"
+                ],
+                "operationId": "715d5698363a4764b85a48d03980f412",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Name",
+                                        "type": "string",
+                                        "example": "product name 1"
+                                    },
+                                    "description": {
+                                        "description": "Description",
+                                        "type": "string",
+                                        "example": "product description 1"
+                                    },
+                                    "price": {
+                                        "description": "Price",
+                                        "type": "decimal",
+                                        "example": "111.01"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/api/v1/products/{id}": {
+            "get": {
+                "tags": [
+                    "api-products"
+                ],
+                "operationId": "9d0f314923cda9892ec09ba7b9712760",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "description": "Description",
+                                            "type": "string"
+                                        },
+                                        "price": {
+                                            "description": "Price",
+                                            "type": "decimal"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "api-products"
+                ],
+                "operationId": "9a699b098d7e3d217cdc0282ef7174a2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "api-products"
+                ],
+                "operationId": "9d7b250414ec1cb5476af82d0d899062",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Name",
+                                        "type": "string",
+                                        "example": "updated product name 1"
+                                    },
+                                    "description": {
+                                        "description": "Description",
+                                        "type": "string",
+                                        "example": "updated product name 1"
+                                    },
+                                    "price": {
+                                        "description": "Price",
+                                        "type": "decimal",
+                                        "example": "222"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/api/v1/products/search": {
+            "get": {
+                "tags": [
+                    "api-products"
+                ],
+                "operationId": "ab95a434bf724a9b3dd0e4d5d803c432",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/products/web/v1/products": {
+            "get": {
+                "tags": [
+                    "web-products"
+                ],
+                "operationId": "4c3ac85f06c9f1d05334e6004783408d",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "web-products"
+                ],
+                "operationId": "852146e76094cfea00b4d91b3c42f01c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Name",
+                                        "type": "string",
+                                        "example": "product name 1"
+                                    },
+                                    "description": {
+                                        "description": "Description",
+                                        "type": "string",
+                                        "example": "product description 1"
+                                    },
+                                    "price": {
+                                        "description": "Price",
+                                        "type": "decimal",
+                                        "example": "111.01"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/web/v1/products/{id}": {
+            "get": {
+                "tags": [
+                    "web-products"
+                ],
+                "operationId": "ce61a073f310360c542b022bf76603bf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "description": "Description",
+                                            "type": "string"
+                                        },
+                                        "price": {
+                                            "description": "Price",
+                                            "type": "decimal"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "web-products"
+                ],
+                "operationId": "926400cb5e52c24c25d2f3b68ff15bed",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "web-products"
+                ],
+                "operationId": "39e464567b558dde366a6de1bb107f40",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Name",
+                                        "type": "string",
+                                        "example": "updated product name 1"
+                                    },
+                                    "description": {
+                                        "description": "Description",
+                                        "type": "string",
+                                        "example": "updated product name 1"
+                                    },
+                                    "price": {
+                                        "description": "Price",
+                                        "type": "decimal",
+                                        "example": "222"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/web/v1/products/search": {
+            "get": {
+                "tags": [
+                    "web-products"
+                ],
+                "operationId": "e2ffa656da12af65533ad10f4a975c22",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "api-products",
+            "description": "api-products"
+        },
+        {
+            "name": "web-products",
+            "description": "web-products"
+        }
+    ]
+}

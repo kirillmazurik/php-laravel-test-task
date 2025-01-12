@@ -1,0 +1,80 @@
+version: '3.9'
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: api-gateway
+    ports:
+      - "8020:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - product-service
+      - order-service
+    networks:
+      - app-network
+            
+  product-service:
+    build:
+      context: ./product-service
+      args:
+        user: developer
+        uid: 1000      
+    container_name: product-service
+    expose:
+      - "8081"
+    working_dir: /var/www/api/product-service
+    volumes:
+      - ./product-service:/var/www/api/product-service
+      - ./product-service/storage:/var/www/api/product-service/storage
+      - ./product-service/vendor:/var/www/api/product-service/vendor
+      - ./product-service/bootstrap/cache:/var/www/api/product-service/bootstrap/cache
+    networks:
+      - app-network
+    depends_on:
+      db:
+        condition: service_healthy
+      
+  order-service:
+    build:
+      context: ./order-service
+      args:
+        user: developer
+        uid: 1000      
+    container_name: order-service
+    expose:
+      - "8082"
+    working_dir: /var/www/api/order-service
+    volumes:
+      - ./order-service:/var/www/api/order-service
+      - ./order-service/storage:/var/www/api/order-service/storage
+      - ./order-service/vendor:/var/www/api/order-service/vendor
+      - ./order-service/bootstrap/cache:/var/www/api/order-service/bootstrap/cache
+    networks:
+      - app-network
+    depends_on:
+      db:
+        condition: service_healthy
+      
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - app-network
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 55
+      
+networks:
+  app-network:
+    driver: bridge

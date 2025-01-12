@@ -1,0 +1,470 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Test task",
+        "version": "1"
+    },
+    "paths": {
+        "/orders/api/v1/addresses": {
+            "get": {
+                "tags": [
+                    "api-addresses"
+                ],
+                "operationId": "60c9249662fdf47ed3b01d29382ea3a8",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/orders/api/v1/orders": {
+            "get": {
+                "tags": [
+                    "api-orders"
+                ],
+                "operationId": "521628fc1983d1b206af8d14797faa82",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "api-orders"
+                ],
+                "operationId": "419813199604698de56e64a1ed35830f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "address_id": {
+                                        "description": "Address",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "products": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "product_id": {
+                                                    "description": "Product",
+                                                    "type": "integer",
+                                                    "example": "1"
+                                                },
+                                                "count": {
+                                                    "description": "Count",
+                                                    "type": "integer",
+                                                    "example": "5"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "minItems": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/api/v1/orders/{id}": {
+            "get": {
+                "tags": [
+                    "api-orders"
+                ],
+                "operationId": "1b0bb82fc230b6b216cc121fabce0543",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "description": "Description",
+                                            "type": "string"
+                                        },
+                                        "price": {
+                                            "description": "Price",
+                                            "type": "decimal"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "api-orders"
+                ],
+                "operationId": "55d24e3f998fef11e9e230166236e618",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "api-orders"
+                ],
+                "operationId": "bb7de4e4b75515ad56377a86fc17b592",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "address_id": {
+                                        "description": "Address",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "products": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "product_id": {
+                                                    "description": "Product",
+                                                    "type": "integer",
+                                                    "example": "1"
+                                                },
+                                                "count": {
+                                                    "description": "Count",
+                                                    "type": "integer",
+                                                    "example": "5"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "minItems": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/api/v1/orders/search": {
+            "get": {
+                "tags": [
+                    "api-orders"
+                ],
+                "operationId": "47995fe5df14c5c7a0d83315bf3873f1",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/orders/web/v1/orders/search": {
+            "get": {
+                "tags": [
+                    "web-orders"
+                ],
+                "operationId": "9659032d306d427b4d04c25cabe6b65f",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/orders/web/v1/orders": {
+            "get": {
+                "tags": [
+                    "web-orders"
+                ],
+                "operationId": "caf04f4b0bd10f0ebb8db6d384d4b641",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "web-orders"
+                ],
+                "operationId": "c45b39d158349c8942f0cbb303ea61a5",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "address_id": {
+                                        "description": "Address",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "products": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "product_id": {
+                                                    "description": "Product",
+                                                    "type": "integer",
+                                                    "example": "1"
+                                                },
+                                                "count": {
+                                                    "description": "Count",
+                                                    "type": "integer",
+                                                    "example": "5"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "minItems": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/web/v1/orders/{id}": {
+            "get": {
+                "tags": [
+                    "web-orders"
+                ],
+                "operationId": "359efe02a20185a4b5b0d33992ae958b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "description": "Description",
+                                            "type": "string"
+                                        },
+                                        "price": {
+                                            "description": "Price",
+                                            "type": "decimal"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "web-orders"
+                ],
+                "operationId": "0d463dc8fbe4c93f72b4e89677d6d8c0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "web-orders"
+                ],
+                "operationId": "eb81cb88aa274042297fbfa614dcfc43",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "address_id": {
+                                        "description": "Address",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "products": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "product_id": {
+                                                    "description": "Product",
+                                                    "type": "integer",
+                                                    "example": "1"
+                                                },
+                                                "count": {
+                                                    "description": "Count",
+                                                    "type": "integer",
+                                                    "example": "5"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "minItems": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "api-addresses",
+            "description": "api-addresses"
+        },
+        {
+            "name": "api-orders",
+            "description": "api-orders"
+        },
+        {
+            "name": "web-orders",
+            "description": "web-orders"
+        }
+    ]
+}
