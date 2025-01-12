@@ -31,6 +31,7 @@ COPY . .
 
 USER root
 RUN mkdir -p bootstrap/cache
+RUN mkdir vendor
 RUN chown -R developer:mygroup /var/www/api/product-service
 
 USER $USERNAME
